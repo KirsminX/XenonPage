@@ -1,0 +1,24 @@
+name: Install NPM Packages  
+  
+on:  
+  push:  
+    branches: [ main ]  
+  pull_request:  
+    branches: [ main ]  
+  
+jobs:  
+  build:  
+    runs-on: ubuntu-latest  
+  
+    steps:  
+      - name: Checkout code  
+        uses: actions/checkout@v2  
+  
+      - name: Set working directory to 'Xenon Page'  
+        run: |  
+          cd Xenon\ Page || exit  
+          pwd  
+  
+      - name: Install NPM packages  
+        working_directory: Xenon Page  
+        run: npm install
