@@ -19,7 +19,7 @@ jobs:
         node-version: '21'
 
     - name: Navigate to Xenon Page directory
-      run: cd Xenon Page
+      run: cd 'Xenon Page'
 
     - name: Install npm dependencies
       run: npm install
