@@ -1,4 +1,4 @@
-name: Install Node.js and npm
+name: Install and Commit Dependencies
 
 on:
   push:
@@ -6,20 +6,27 @@ on:
       - main
 
 jobs:
-  build:
+  install_and_commit:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
+    - name: Checkout Repository
       uses: actions/checkout@v2
 
     - name: Setup Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '21.7.1'
+        npm-version: '10.5.2'
 
-    - name: Navigate to Xenon Page directory
-      run: cd 'Xenon Page'
+    - name: Install NPM Dependencies
+      run: |
+        cd "Xenon Page"
+        npm install
 
-    - name: Install npm dependencies
-      run: npm install
+    - name: Commit Changes
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "Your Name"
+        git add -A
+        git diff --cached --exit-code || git commit -m "Update dependencies"
+        git push
