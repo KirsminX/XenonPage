@@ -18,16 +18,16 @@ jobs:
         npm-version: '10.5.2'
 
     - name: Navigate to Xenon Page folder
-      run: cd 'Xenon Page'
+      run: cd "Xenon Page"
 
     - name: Install dependencies
       run: npm install
-      working-directory: Xenon\ Page
+      working-directory: "Xenon Page"
 
     - name: Commit changes
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
+        git config --global user.email "Dino_doge@qq.com"
+        git config --global user.name "KirsminX"
         git add -A
         git diff-index --quiet HEAD || git commit -m "Update dependencies"
         git push
